@@ -1,0 +1,19 @@
+{
+  "name": "formative3.1",
+  "version": "1.0.0",
+  "description": "Formative 3.1",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnnieIsaako/formative3.1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnnieIsaako/formative3.1/issues"
+  },
+  "homepage": "https://github.com/AnnieIsaako/formative3.1#readme"
+}
