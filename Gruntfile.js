@@ -8,12 +8,15 @@ module.exports = function(grunt) {
               }
           }
       },
-      jshint: {
-        files: ["*.js", "js/script.js"],
-        options: {
-            globals:{
-                jQuery: true
-            }
+      cssmin: {
+        target: {
+          files: [{
+            expand: true,
+            cwd: 'css/',
+            src: ['*.css', '!*.min.css'],
+            dest: 'css/',
+            ext: '.min.css'
+          }]
         }
       },
       watch: {
