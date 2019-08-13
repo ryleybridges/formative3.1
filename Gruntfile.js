@@ -22,6 +22,7 @@ module.exports = function(grunt) {
 // load npm tasks
 grunt.loadNpmTasks('grunt-contrib-jshint');
 grunt.loadNpmTasks('grunt-contrib-cssmin');
+grunt.loadNpmTasks('grunt-contrib-watch');
 
 // register tasks
   grunt.registerTask('all', ['sass', 'cssmin']);
