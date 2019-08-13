@@ -15,6 +15,14 @@ module.exports = function(grunt) {
                 jQuery: true
             }
         }
+      },
+      watch: {
+        configFiles: {
+          files: [ 'Gruntfile.js', 'config/*.js' ],
+          options: {
+            reload: true
+          }
+        }
       }
     });
 
@@ -27,4 +35,5 @@ grunt.loadNpmTasks('grunt-contrib-watch');
 // register tasks
   grunt.registerTask('all', ['sass', 'cssmin']);
   grunt.registerTask('check', ['jshint']);
+  grunt.registerTask('default', ['watch']);
 }
