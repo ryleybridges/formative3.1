@@ -1,14 +1,20 @@
 $(document).ready(function(){
+  let countryCode;
+
+  $('.checkRadio').click(function(){
+    countryCode = $(this).val();
+    initAjax(countryCode)
+  });
+
+  const initAjax = (country) => {
     $.ajax({
-      url: 'https://newsapi.org/v2/top-headlines?country=nz&apiKey=4eef0c7040a24bd38e258c815585c046',
+      url: `https://newsapi.org/v2/top-headlines?country=${country}&apiKey=4eef0c7040a24bd38e258c815585c046`,
       type: 'GET',
       dataType: 'json',
       success: function(data){
+        $('#cardNews').empty();
         const articles = data.articles;
         for (var i = 0; i < articles.length; i++) {
-<<<<<<< HEAD
-          console.log(articles[i]);
-=======
           let card = `
           <div class="card mb-3" style="max-width: 870px;">
             <div class="row no-gutters">
@@ -26,15 +32,13 @@ $(document).ready(function(){
             </div>
           </div>
           `;
-          $('#content').append(card);
-
->>>>>>> anniesDev
+          $('#cardNews').append(card);
         }
       },
       error: function(){
         console.log("not good");
       }
     });
-
+  }
 
 });
