@@ -1,13 +1,28 @@
 $(document).ready(function(){
+<<<<<<< HEAD
   $('#aboutContent').hide();
+=======
+  let countryCode;
+
+  $('.checkRadio').click(function(){
+    countryCode = $(this).val();
+    initAjax(countryCode)
+  });
+
+  const initAjax = (country) => {
+>>>>>>> 57096d4b0766d238aa34c0b7cd37020384a8dc25
     $.ajax({
-      url: 'https://newsapi.org/v2/top-headlines?country=nz&apiKey=4eef0c7040a24bd38e258c815585c046',
+      url: `https://newsapi.org/v2/top-headlines?country=${country}&apiKey=4eef0c7040a24bd38e258c815585c046`,
       type: 'GET',
       dataType: 'json',
       success: function(data){
+        $('#cardNews').empty();
         const articles = data.articles;
         for (var i = 0; i < articles.length; i++) {
+<<<<<<< HEAD
           console.log(articles[i]);
+=======
+>>>>>>> 57096d4b0766d238aa34c0b7cd37020384a8dc25
           let card = `
           <div class="card mb-3" style="max-width: 870px;">
             <div class="row no-gutters">
@@ -25,13 +40,18 @@ $(document).ready(function(){
             </div>
           </div>
           `;
+<<<<<<< HEAD
           $('#content').append(card);
+=======
+          $('#cardNews').append(card);
+>>>>>>> 57096d4b0766d238aa34c0b7cd37020384a8dc25
         }
       },
       error: function(){
         console.log('not good');
       }
     });
+<<<<<<< HEAD
 
     $('#about').click(function(){
       $('#content').hide();
@@ -44,5 +64,8 @@ $(document).ready(function(){
       $('#content').show();
     });
 
+=======
+  }
+>>>>>>> 57096d4b0766d238aa34c0b7cd37020384a8dc25
 
 });
