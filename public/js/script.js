@@ -52,8 +52,6 @@ $(document).ready(function(){
       $('#content').show();
     });
 
-=======
   }
->>>>>>> 57096d4b0766d238aa34c0b7cd37020384a8dc25
 
 });
