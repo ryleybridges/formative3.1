@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  $('#aboutContent').hide();
   let countryCode;
 
   $('.checkRadio').click(function(){
@@ -36,9 +37,21 @@ $(document).ready(function(){
         }
       },
       error: function(){
-        console.log("not good");
+        console.log('not good');
       }
     });
+
+    $('#about').click(function(){
+      $('#content').hide();
+      $('#aboutContent').show();
+      $('#aboutContent').html('<h2>About</h2><br><p>Welcome to Top Articles Today, an application that shows you the latest headlines from all around the world. Using our filtering system, you can switch to whatever country you want relevant articles from to see what is the top news in those countries from news sites relevant to you. By clicking on the Read More button of each headline, you will be taken to the site that the article is from and be able to read it in full.<br>This application was created by two young developers Annie and Ryley, who wanted to be able to use the News API to show a way of displaying the latest important articles coming out from all around the world to users.</p>');
+    });
+
+    $('#news').click(function(){
+      $('#aboutContent').hide();
+      $('#content').show();
+    });
+
   }
 
 });
