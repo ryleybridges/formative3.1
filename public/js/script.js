@@ -1,15 +1,21 @@
 $(document).ready(function(){
   $('#aboutContent').hide();
   let countryCode;
+  let category;
 
   $('.checkRadio').click(function(){
     countryCode = $(this).val();
     initAjax(countryCode)
   });
 
-  const initAjax = (country) => {
+  $('.categoryRadio').click(function(){
+    category = $(this).val();
+    initAjax(category);
+  });
+
+  const initAjax = (country, category) => {
     $.ajax({
-      url: `https://newsapi.org/v2/top-headlines?country=${country}&apiKey=4eef0c7040a24bd38e258c815585c046`,
+      url: `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=4eef0c7040a24bd38e258c815585c046`,
       type: 'GET',
       dataType: 'json',
       success: function(data){
