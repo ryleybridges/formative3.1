@@ -1,15 +1,34 @@
 $(document).ready(function(){
-  $('#aboutContent').hide();
+  let newsKey;
+
+  $.ajax({
+    url: 'config.json',
+    type: 'GET',
+    dataType: 'json',
+    success:function(keys) {
+      newsKey = keys['newsApiKey'];
+      initAjax('nz', newsKey);
+    },
+    error: function(){
+      console.log('cannot find config.json file, cannot run application');
+    }
+  });
+
+
   let countryCode;
+
+  $('#aboutContent').hide();
 
   $('.checkRadio').click(function(){
     countryCode = $(this).val();
-    initAjax(countryCode)
+    initAjax(countryCode, newsKey);
   });
 
-  const initAjax = (country) => {
+
+
+  const initAjax = (country, key) => {
     $.ajax({
-      url: `https://newsapi.org/v2/top-headlines?country=${country}&apiKey=4eef0c7040a24bd38e258c815585c046`,
+      url: `https://newsapi.org/v2/top-headlines?country=${country}&apiKey=${key}`,
       type: 'GET',
       dataType: 'json',
       success: function(data){
@@ -53,5 +72,5 @@ $(document).ready(function(){
     });
 
   }
-  initAjax('nz')
+
 });
