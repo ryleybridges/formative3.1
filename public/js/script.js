@@ -14,6 +14,7 @@ $(document).ready(function(){
   });
 
   const initAjax = (country, category) => {
+    console.log(country, category);
     $.ajax({
       url: `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=4eef0c7040a24bd38e258c815585c046`,
       type: 'GET',
